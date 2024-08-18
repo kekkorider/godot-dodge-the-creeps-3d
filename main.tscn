@@ -29,6 +29,8 @@ mob_scene = ExtResource("2_22324")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("BoxShape3D_vljlo")
@@ -41,6 +43,10 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15,
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_7cs2b")]
+speed = null
+fall_acceleration = null
+jump_impulse = null
+bounce_impulse = null
 
 [node name="CameraPivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
@@ -58,6 +64,7 @@ curve = SubResource("Curve3D_hj0vy")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.675, 0, -12.4029)
 
 [node name="Cylinders" type="Node3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cylinders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6852, 0, -12)

@@ -3,17 +3,22 @@
 [ext_resource type="PackedScene" uid="uid://bseawl4s4io3l" path="res://art/player.glb" id="1_pmfmv"]
 [ext_resource type="Script" path="res://player.gd" id="1_q3tbr"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_7yx7l"]
-margin = 0.4
-radius = 0.8
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_07byn"]
+radius = 1.04566
+height = 3.07558
 
 [node name="Player" type="CharacterBody3D"]
+collision_mask = 6
 script = ExtResource("1_q3tbr")
+speed = null
+fall_acceleration = null
+jump_impulse = null
+bounce_impulse = null
 
 [node name="Pivot" type="Node3D" parent="."]
 
 [node name="Character" parent="Pivot" instance=ExtResource("1_pmfmv")]
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.791086, 0)
-shape = SubResource("SphereShape3D_7yx7l")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.273293)
+shape = SubResource("CapsuleShape3D_07byn")
