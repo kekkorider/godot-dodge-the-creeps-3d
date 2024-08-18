@@ -9,6 +9,8 @@ extends CharacterBody3D
 # Vertical impulse when bouncing over an enemy, in meters per second
 @export var bounce_impulse: float = 16
 
+signal hit
+
 var target_velocity = Vector3.ZERO
 
 func _physics_process(delta: float) -> void:
@@ -25,6 +27,7 @@ func _physics_process(delta: float) -> void:
 
   if direction != Vector3.ZERO:
     direction = direction.normalized()
+
     # Setting the basis property will affect the rotation on the node
     $Pivot.basis = Basis.looking_at(direction)
 
@@ -60,10 +63,17 @@ func _physics_process(delta: float) -> void:
       if Vector3.UP.dot(collision.get_normal()) > 0.1:
         mob.squash()
 
-        # Bounce
-        target_velocity.y = jump_impulse
+      # Bounce
+      target_velocity.y = jump_impulse
 
-        # Prevent duplicate calls
-        break
+      # Prevent duplicate calls
+      break
 
   move_and_slide()
+
+func die() -> void:
+  hit.emit()
+  queue_free()
+
+func _on_mob_detector_body_entered(_body: Node3D) -> void:
+  die()
