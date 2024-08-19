@@ -27,6 +27,7 @@ func initialize(start_position: Vector3, player_position: Vector3) -> void:
 	# in order to move in the direction the mob is looking.
   velocity = velocity.rotated(Vector3.UP, rotation.y)
 
+  @warning_ignore('integer_division')
   $AnimationPlayer.speed_scale = random_speed / min_speed
 
 
