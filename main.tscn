@@ -49,6 +49,10 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15,
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_7cs2b")]
+speed = 14.0
+fall_acceleration = 75.0
+jump_impulse = 20.0
+bounce_impulse = 16.0
 
 [node name="CameraPivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
